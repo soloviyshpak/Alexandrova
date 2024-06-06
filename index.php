@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+// Проверяем, авторизован ли пользователь
+if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
+    // Пользователь авторизован, скрываем кнопку авторизации
+    $isLoggedIn = true;
+} else {
+    $isLoggedIn = false;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -10,7 +22,7 @@
   <body>
     <header class="header">
       <div class="header__bar">
-        <a class="header__bar-logo" href="index.html"
+        <a class="header__bar-logo" href="index.php"
           ><img
             src="img/logo.svg"
             alt="Александрова - профессиональный фотограф"
@@ -19,25 +31,32 @@
           <ul class="header__nav-list">
             <ul class="header__nav-item">
               <a
-                href="index.html"
+                href="index.php"
                 class="header__nav-link header__nav-link--opened"
                 >Главная</a
               >
             </ul>
             <ul class="header__nav-item">
-              <a href="portfolio.html" class="header__nav-link">Портфолио</a>
+              <a href="portfolio.php" class="header__nav-link">Портфолио</a>
             </ul>
             <ul class="header__nav-item">
-              <a href="price.html" class="header__nav-link">Записаться</a>
+              <a href="price.php" class="header__nav-link">Записаться</a>
             </ul>
             <ul class="header__nav-item">
-              <a href="contacts.html" class="header__nav-link">Контакты</a>
+              <a href="contacts.php" class="header__nav-link">Контакты</a>
             </ul>
+            <?php if($isLoggedIn): ?>
             <ul class="header__nav-item">
-              <a href="#" class="header__nav-link"
+              <a href="account.php" class="header__nav-link"
                 ><img src="img/icons/account.svg" alt=""
               /></a>
             </ul>
+            <?php else: ?>
+              <ul class="header__nav-item header__nav-item--auth">
+              <a href="registration.php" class="header__nav-link header__nav-link--auth">Зарегистрироваться</a> / <a href="login.php" class="header__nav-link header__nav-link--auth"
+                >Войти</a>
+            </ul>
+            <?php endif; ?>
           </ul>
         </nav>
       </div>

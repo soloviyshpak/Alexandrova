@@ -1,3 +1,15 @@
+<?php 
+session_start();
+
+// Проверяем, авторизован ли пользователь
+if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
+    // Пользователь уже авторизован, перенаправляем его на главную страницу
+    header("Location: index.php");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -10,7 +22,7 @@
   <body>
     <header class="header-page">
       <div class="header__bar">
-        <a class="header__bar-logo" href="index.html"
+        <a class="header__bar-logo" href="index.php"
           ><img
             src="img/logo.svg"
             alt="Александрова - профессиональный фотограф"
@@ -20,7 +32,7 @@
     <main class="main">
       <section class="registration registration--login">
         <h2 class="registration__title">Авторизация</h2>
-        <form class="registration__form">
+        <form class="registration__form" method="POST" action="php/login.php">
           <label class="registration__form-label" for="email">E-Mail</label>
           <input
             class="registration__form-input"

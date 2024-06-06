@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+// Проверяем, авторизован ли пользователь
+if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
+    // Пользователь авторизован, скрываем кнопку авторизации
+    $isLoggedIn = true;
+} else {
+    $isLoggedIn = false;
+    header("Location: index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -10,7 +23,7 @@
   <body>
     <header class="header-page">
       <div class="header__bar">
-        <a class="header__bar-logo" href="index.html"
+        <a class="header__bar-logo" href="index.php"
           ><img
             src="img/logo.svg"
             alt="Александрова - профессиональный фотограф"
@@ -18,22 +31,29 @@
         <nav class="header__nav">
           <ul class="header__nav-list">
             <ul class="header__nav-item">
-              <a href="index.html" class="header__nav-link">Главная</a>
+              <a href="index.php" class="header__nav-link">Главная</a>
             </ul>
             <ul class="header__nav-item">
-              <a href="portfolio.html" class="header__nav-link">Портфолио</a>
+              <a href="portfolio.php" class="header__nav-link">Портфолио</a>
             </ul>
             <ul class="header__nav-item">
-              <a href="price.html" class="header__nav-link">Записаться</a>
+              <a href="price.php" class="header__nav-link">Записаться</a>
             </ul>
             <ul class="header__nav-item">
-              <a href="contacts.html" class="header__nav-link">Контакты</a>
+              <a href="contacts.php" class="header__nav-link">Контакты</a>
             </ul>
+            <?php if($isLoggedIn): ?>
             <ul class="header__nav-item">
-              <a href="#" class="header__nav-link"
+              <a href="account.php" class="header__nav-link"
                 ><img src="img/icons/account.svg" alt=""
               /></a>
             </ul>
+            <?php else: ?>
+              <ul class="header__nav-item header__nav-item--auth">
+              <a href="registration.php" class="header__nav-link header__nav-link--auth">Зарегистрироваться</a> / <a href="login.php" class="header__nav-link header__nav-link--auth"
+                >Войти</a>
+            </ul>
+            <?php endif; ?>
           </ul>
         </nav>
       </div>
@@ -42,7 +62,7 @@
       <section class="account">
         <div class="account__inner account__inner--edit">
           <h2 class="registration__title">Редактировать профиль</h2>
-          <form class="registration__form registration__form--edit">
+          <form class="registration__form registration__form--edit" method="POST" action="php/profile-edit.php">
             <label class="registration__form-label" for="name">Имя</label>
             <input
               class="registration__form-input"
@@ -72,6 +92,7 @@
                   id="male"
                   name="gender"
                   type="radio"
+                  value="male"
                 />
               </label>
 
@@ -84,6 +105,7 @@
                   id="female"
                   name="gender"
                   type="radio"
+                  value="female"
               /></label>
             </div>
             <label class="registration__form-label" for="password"

@@ -85,8 +85,16 @@ body {
   scale: 1.1;
 }
 
+.header__nav-item--auth:hover {
+  scale: 1;
+}
+
 .header__nav-link {
   font-size: 12px;
+}
+
+.header__nav-link--auth:hover {
+  text-decoration: underline;
 }
 
 .header__nav-link--opened {
@@ -804,6 +812,16 @@ body {
 }
 .account__orders:hover {
   scale: 1.1;
+}
+
+.account__exit {
+  font-family: "Forum";
+  font-size: 12px;
+  color: #000;
+  margin: 14px auto 0;
+}
+.account__exit:hover {
+  text-decoration: underline;
 }
 
 .admin-orders {

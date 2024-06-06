@@ -11,7 +11,7 @@
     <header class="header-page">
       <div class="header__bar">
         <div class="header__logo-inner">
-          <a class="header__bar-logo" href="index.html"
+          <a class="header__bar-logo" href="index.php"
             ><img
               src="img/logo.svg"
               alt="Александрова - профессиональный фотограф"
@@ -21,7 +21,7 @@
         <nav class="header__nav">
           <ul class="header__nav-list">
             <ul class="header__nav-item">
-              <a href="index.html" class="header__nav-link">Заказы</a>
+              <a href="index.php" class="header__nav-link">Заказы</a>
             </ul>
             <ul class="header__nav-item">
               <a

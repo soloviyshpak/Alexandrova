@@ -44,8 +44,18 @@
     scale: 1.1;
   }
 }
+.header__nav-item--auth {
+  &:hover {
+    scale: 1;
+  }
+}
 .header__nav-link {
   font-size: 12px;
+}
+.header__nav-link--auth {
+  &:hover {
+    text-decoration: underline;
+  }
 }
 .header__nav-link--opened {
   text-decoration: underline;
