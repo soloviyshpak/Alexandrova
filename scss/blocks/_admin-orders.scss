@@ -1,0 +1,98 @@
+.admin-orders {
+  padding: 0 96px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.admin-orders__title {
+  font-family: 'Forum';
+  margin: 60px 0 42px;
+  font-size: 36px;
+  text-align: center;
+}
+.admin-orders__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 87px 79px;
+}
+.admin-orders__item {
+  background: #fafafa;
+  width: 368px;
+  padding: 15px 20px 25px;
+  border-radius: 10px;
+  position: relative;
+}
+.admin-orders__item-title {
+  font-family: 'Forum';
+  font-size: 36px;
+  color: #000;
+  margin-bottom: 24px;
+}
+.admin-orders__item-info {
+  font-size: 16px;
+  color: #000;
+  margin-bottom: 15px;
+
+  &:last-child {
+    margin: 0;
+  }
+  a {
+    font-size: 16px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.admin-orders__item-info--center {
+  text-align: center;
+  margin-top: 29px;
+}
+.admin-orders__item-message {
+  font-size: 16px;
+  text-align: justify;
+  color: #000;
+}
+.admin-orders__item-del {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+}
+.admin-orders__item-controls {
+  margin-top: 35px;
+  display: flex;
+  justify-content: space-between;
+}
+.admin-orders__item-btn {
+  display: block;
+  width: 153px;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+  color: #fff;
+  padding: 5px 0;
+  transition: all 0.3s;
+
+  &:hover {
+    scale: 1.1;
+  }
+}
+.admin-orders__item-btn--accept {
+  background: #28af12;
+}
+.admin-orders__item-btn--deny {
+  background: #c60c0c;
+}
+.admin-orders__item-btn--del {
+  background: #c60c0c;
+  width: 100%;
+}
+.admin-orders__accepted {
+  display: block;
+  font-size: 16px;
+  margin-top: 59px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

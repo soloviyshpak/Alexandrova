@@ -1,0 +1,73 @@
+.price {
+  padding: 110px 0 145px;
+}
+.price__inner {
+}
+.price__position {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 94px;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+.price__postition-title {
+  font-family: 'Forum';
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+.price__position-img {
+  width: 581px;
+  height: 419px;
+  object-fit: cover;
+  margin-right: 33px;
+}
+.price__position-info {
+  max-width: 511px;
+}
+.price__position-info_title {
+  font-family: 'Forum';
+  font-size: 24px;
+  margin: 10px 0 10px;
+}
+.price__position-info_list {
+}
+.price__position-info_item {
+  position: relative;
+  padding-left: 10px;
+  &::before {
+    content: '';
+    width: 3px;
+    height: 3px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    border-radius: 100%;
+    background: #fff;
+  }
+}
+.price__position-info_cost {
+  font-family: 'Forum';
+  font-size: 24px;
+  text-align: center;
+  margin-top: 16px;
+}
+.price__position-info_btn {
+  display: block;
+  font-size: 12px;
+  max-width: 458px;
+  background: #7c7c7c;
+  text-align: center;
+  padding: 8px 0 8px;
+  border-radius: 1003px;
+  margin: 10px auto 0;
+  transition: all 0.3s;
+
+  &:hover {
+    scale: 1.1;
+  }
+}

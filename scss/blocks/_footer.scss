@@ -1,0 +1,31 @@
+.footer {
+  background: #1f1f1f;
+  padding: 15px 0 16px;
+}
+
+.footer__inner {
+  text-align: center;
+}
+.footer__copyright {
+  font-size: 12px;
+  margin-bottom: 9px;
+}
+.footer__socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer__socials-item {
+  margin-right: 13px;
+  transition: all 0.3s;
+
+  &:last-child {
+    margin: 0;
+  }
+
+  &:hover {
+    scale: 1.1;
+  }
+}
+.footer__socials-link {
+}

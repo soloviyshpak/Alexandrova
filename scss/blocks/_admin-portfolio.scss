@@ -1,0 +1,136 @@
+.admin-portfolio {
+  padding: 0 96px 70px;
+}
+.admin-portfolio__title {
+  font-family: 'Forum';
+  margin: 60px 0 42px;
+  font-size: 36px;
+  text-align: center;
+}
+.admin-portfolio__add-inner {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 40px;
+}
+.admin-portfolio__add {
+  display: block;
+  padding: 8px 0;
+  font-size: 14px;
+  text-align: center;
+  background: #242cef;
+  border-radius: 10px;
+  width: 143px;
+  transition: all 0.3s;
+  &:hover {
+    scale: 1.1;
+  }
+}
+.admin-porfolio__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 61px 109px;
+}
+.admin-portfolio__item {
+  display: flex;
+  flex-direction: column;
+  width: 346px;
+  position: relative;
+}
+.admin-portfolio__item-img {
+  width: 346px;
+  height: 301px;
+  object-fit: cover;
+  margin-bottom: 16px;
+}
+.admin-portfolio__item-title {
+  font-size: 14px;
+  color: #f4f4f4;
+  text-align: center;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.admin-portfolio__item-del {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+}
+
+.admin-portfolio__form {
+  display: flex;
+  flex-direction: column;
+  width: 429px;
+  margin: 0 auto;
+}
+.admin-portfolio__form-label {
+  font-family: 'Forum';
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.admin-portfolio__form-input {
+  margin-bottom: 28px;
+  font-size: 16px;
+  border-radius: 10px;
+  color: #000;
+  padding: 11px 16px;
+}
+.admin-portfolio__form-textarea {
+  color: #000;
+  font-size: 16px;
+  margin-bottom: 32px;
+  height: 175px;
+  resize: vertical;
+  border-radius: 10px;
+  background: #fafafa;
+  padding: 11px 16px;
+}
+.admin-portfolio__form-window {
+  background: #fafafa;
+  border-radius: 10px;
+  margin-top: 8px;
+  padding: 60px 96px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 30px;
+    margin-bottom: 14px;
+  }
+  p {
+    font-family: 'Forum';
+    font-size: 16px;
+    color: #000;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    p {
+      text-decoration: underline;
+    }
+  }
+}
+.admin-portfolio__form-cover {
+  display: none;
+}
+.admin-portfolio__form-photos {
+  margin-top: 24px;
+}
+.admin-portfolio__form-btn {
+  margin-top: 70px;
+  padding: 7px 0;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  background: #0009db;
+  border-radius: 10px;
+  transition: all 0.3s;
+
+  &:hover {
+    scale: 1.1;
+  }
+}

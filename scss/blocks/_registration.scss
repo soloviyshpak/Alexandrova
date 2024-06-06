@@ -1,0 +1,111 @@
+.registration {
+  background: #d9d9d9;
+  max-width: 685px;
+  padding: 24px 39px 36px;
+  border-radius: 10px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 12%);
+}
+.registration--login {
+  transform: translate(-50%, 50%);
+}
+.registration__title {
+  font-family: 'Forum';
+  font-size: 36px;
+  text-align: center;
+  color: #000;
+  margin-bottom: 6px;
+}
+.registration__form {
+  display: flex;
+  flex-direction: column;
+}
+.registration__form--edit {
+  width: 100%;
+}
+.registration__form-label {
+  font-family: 'Forum';
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000;
+  margin-bottom: 8px;
+}
+.registration__form-input {
+  margin-bottom: 20px;
+  padding: 11px 16px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #828282;
+}
+.registration__form-gender {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+.registration__form-label--gender {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  width: 45px;
+  height: 45px;
+  margin: 0 18px 0 0;
+  background: #fff;
+  position: relative;
+
+  &:last-child {
+    margin: 0;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+.registration__form-label--selected {
+  background: #686868;
+
+  .registration__form-gender_tag {
+    color: #fff;
+  }
+}
+.registration__form-gender_title {
+  font-family: 'Forum';
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000;
+  text-align: right;
+  margin-bottom: 8px;
+}
+.registration__form-gender_tag {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #000;
+}
+.registration__form-radio {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0;
+}
+.registration__form-btn {
+  font-family: 'Forum';
+  padding: 11px 0;
+  font-size: 23px;
+  text-align: center;
+  color: #fff;
+  margin-top: 20px;
+  border-radius: 100px;
+  background: #3b38db;
+  transition: all 0.3s;
+
+  &:hover {
+    scale: 1.1;
+  }
+}

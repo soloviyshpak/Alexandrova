@@ -1,0 +1,87 @@
+.header {
+  background: url('../img/header-bg.jpg') no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+}
+.header__bar {
+  padding: 20px 76px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header__bar-logo {
+  transition: all 0.3s;
+
+  &:hover {
+    scale: 1.1;
+  }
+}
+.header__bar-admin {
+  font-family: 'Forum';
+  font-size: 24px;
+  color: #fff;
+  margin-top: 10px;
+}
+.header__nav {
+}
+.header__nav-list {
+  display: flex;
+}
+.header__nav-item {
+  margin-right: 20px;
+  transition: all 0.3s;
+
+  &:last-child {
+    margin: 0;
+  }
+  &:hover {
+    scale: 1.1;
+  }
+}
+.header__nav-link {
+  font-size: 12px;
+}
+.header__nav-link--opened {
+  text-decoration: underline;
+}
+.header__content {
+  position: absolute;
+  bottom: 125px;
+  left: 76px;
+}
+.header__content-title {
+  font-family: 'Forum';
+  font-weight: 400;
+  font-size: 60px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+.header__content-subtitle {
+  font-size: 12px;
+  text-transform: uppercase;
+  text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  margin-top: 34px;
+}
+.header__content-btn {
+  display: block;
+  border: 1px solid #fff;
+  max-width: 210px;
+  text-align: center;
+  padding: 15px 68px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-top: 20px;
+  transition: all 0.3s;
+
+  &:hover {
+    scale: 1.1;
+  }
+}

@@ -1,0 +1,167 @@
+.contacts {
+  padding: 52px 0 115px;
+}
+.contacts__inner {
+}
+.contacts__write {
+}
+.contacts__title {
+  font-family: 'Forum';
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.contacts__title--phone {
+  margin-bottom: 16px;
+}
+.contacts__write-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contacts__write-map {
+  margin-right: 92px;
+}
+.contacts__write-form {
+  display: flex;
+  flex-direction: column;
+  width: 413px;
+}
+.contacts__write-form_label {
+  font-family: 'Forum';
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fafafa;
+  margin-bottom: 8px;
+}
+.contacts__write-form_input {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #828282;
+  margin-bottom: 21px;
+}
+.contacts__write-form_textarea {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #828282;
+  margin-bottom: 21px;
+  resize: vertical;
+  height: 194px;
+}
+.contacts__write-form_btn {
+  display: block;
+  font-size: 12px;
+  color: #fff;
+  background: #7c7c7c;
+  border-radius: 1003px;
+  padding: 8px 0 8px;
+  transition: all 0.3s;
+
+  &:hover {
+    scale: 1.1;
+  }
+}
+.contacts__socials {
+  padding-top: 39px;
+}
+.contacts__socials-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contacts__socials-item {
+  margin-right: 123px;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+.contacts__socials-link {
+  &:hover {
+    .contacts__socials-img {
+      scale: 1.1;
+    }
+  }
+}
+.contacts__socials-img {
+  transition: all 0.3s;
+}
+.contacts__phone {
+  padding-top: 65px;
+}
+.contacts__phone-subtitle {
+  text-align: center;
+}
+.contacts__phone-btn {
+  display: block;
+  max-width: 412px;
+  margin: 25px auto 0;
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  background: #7c7c7c;
+  border-radius: 1003px;
+  padding: 8px 0 8px;
+  transition: all 0.3s;
+
+  &:hover {
+    scale: 1.1;
+  }
+}
+
+// Модальное окно
+.contacts__phone-modal_overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.contacts__phone-modal_overlay--visible {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease-in-out;
+}
+.contacts__phone-modal {
+  background: #fafafa;
+  width: 500px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  display: none;
+  position: relative;
+}
+.contacts__phone-modal--visible {
+  display: block;
+}
+.contacts__phone-modal_phone {
+  position: absolute;
+  font-family: 'Forum';
+  color: #000;
+  font-size: 29px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

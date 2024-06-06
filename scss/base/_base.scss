@@ -1,0 +1,18 @@
+* {
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  font-size: 14px;
+  color: #fff;
+}
+body {
+  background: #000;
+}
+.wrapper {
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}

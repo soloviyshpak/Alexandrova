@@ -1,0 +1,55 @@
+.portfolio-page {
+  padding: 60px 76px 109px;
+}
+.portfolio-page__titlebox {
+  max-width: 1169px;
+  text-align: center;
+  margin: 0 auto;
+}
+.portfolio-page__title {
+  font-family: 'Forum';
+  font-size: 36px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+.porfolio-page__subtitle {
+  color: #c3c3c3;
+}
+.portfolio-page__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 80px 50px;
+  margin-top: 100px;
+}
+.portfolio-page__item {
+  max-width: 550px;
+}
+.portfolio-page__item-link {
+  &:hover {
+    .porfolio-page__item-title {
+      text-decoration: underline;
+    }
+    .portfolio-page__item-img {
+      scale: 1.03;
+    }
+  }
+}
+.portfolio-page__item-link--page {
+}
+.portfolio-page__item-img {
+  width: 550px;
+  height: 550px;
+  object-fit: cover;
+  transition: all 0.3s;
+}
+.portfolio-page__item-img--page {
+  width: 574px;
+  height: 836px;
+}
+.porfolio-page__item-title {
+  margin-top: 16px;
+  text-align: center;
+  color: #f4f4f4;
+}

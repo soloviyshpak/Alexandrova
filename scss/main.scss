@@ -1,0 +1,25 @@
+// Base
+@import './base/variables';
+@import './base/mixins';
+@import './base/fonts';
+@import './base/base';
+
+// Blocks
+
+// Sections
+@import './blocks/header';
+@import './blocks/about';
+@import './blocks/sign';
+@import './blocks/portfolio';
+@import './blocks/footer';
+
+@import './blocks/portfolio-page';
+@import './blocks/price';
+@import './blocks/contacts';
+
+@import './blocks/registration';
+@import './blocks/account';
+
+// Admin panel
+@import './blocks/admin-orders';
+@import './blocks/admin-portfolio';

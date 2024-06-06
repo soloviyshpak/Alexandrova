@@ -1,0 +1,20 @@
+/* Ubuntu regular */
+@font-face {
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  font-style: normal;
+  src: local('Ubuntu'), url('../fonts/Ubuntu-Regular.woff2') format('woff2'),
+    url('../fonts/Ubuntu-Regular.woff') format('woff'),
+    url('../fonts/Ubuntu-Regular.eot') format('eot');
+  font-display: swap;
+}
+/* Forum regular */
+@font-face {
+  font-family: 'Forum';
+  font-weight: 400;
+  font-style: normal;
+  src: local('Forum'), url('../fonts/Forum-Regular.woff2') format('woff2'),
+    url('../fonts/Forum-Regular.woff') format('woff'),
+    url('../fonts/Forum-Regular.eot') format('eot');
+  font-display: swap;
+}
