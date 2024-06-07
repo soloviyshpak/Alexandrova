@@ -66,90 +66,42 @@ if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
       <section class="portfolio-page">
         <h2 class="portfolio-page__title">Обезьяна</h2>
         <ul class="portfolio-page__list">
-          <li class="portfolio-page__item">
-            <a
-              class="portfolio-page__item-link portfolio-page__item-link--page"
-              href="#"
-              data-fancybox="gallery"
-              data-src="img/portfolio-page.jpg"
-            >
-              <img
-                class="portfolio-page__item-img portfolio-page__item-img--page"
-                src="img/portfolio-page.jpg"
-                alt=""
-              />
-            </a>
-          </li>
-          <li class="portfolio-page__item">
-            <a
-              class="portfolio-page__item-link portfolio-page__item-link--page"
-              href="#"
-              data-fancybox="gallery"
-              data-src="img/portfolio-page.jpg"
-            >
-              <img
-                class="portfolio-page__item-img portfolio-page__item-img--page"
-                src="img/portfolio-page.jpg"
-                alt=""
-              />
-            </a>
-          </li>
-          <li class="portfolio-page__item">
-            <a
-              class="portfolio-page__item-link portfolio-page__item-link--page"
-              href="#"
-              data-fancybox="gallery"
-              data-src="img/portfolio-page.jpg"
-            >
-              <img
-                class="portfolio-page__item-img portfolio-page__item-img--page"
-                src="img/portfolio-page.jpg"
-                alt=""
-              />
-            </a>
-          </li>
-          <li class="portfolio-page__item">
-            <a
-              class="portfolio-page__item-link portfolio-page__item-link--page"
-              href="#"
-              data-fancybox="gallery"
-              data-src="img/portfolio-page.jpg"
-            >
-              <img
-                class="portfolio-page__item-img portfolio-page__item-img--page"
-                src="img/portfolio-page.jpg"
-                alt=""
-              />
-            </a>
-          </li>
-          <li class="portfolio-page__item">
-            <a
-              class="portfolio-page__item-link portfolio-page__item-link--page"
-              href="#"
-              data-fancybox="gallery"
-              data-src="img/portfolio-page.jpg"
-            >
-              <img
-                class="portfolio-page__item-img portfolio-page__item-img--page"
-                src="img/portfolio-page.jpg"
-                alt=""
-              />
-            </a>
-          </li>
-          <li class="portfolio-page__item">
-            <a
-              class="portfolio-page__item-link portfolio-page__item-link--page"
-              href="#"
-              data-fancybox="gallery"
-              data-src="img/portfolio-page.jpg"
-            >
-              <img
-                class="portfolio-page__item-img portfolio-page__item-img--page"
-                src="img/portfolio-page.jpg"
-                alt=""
-              />
-            </a>
-          </li>
+        <?php
+          // Подключение к базе данных
+          require_once 'php/config.php';
+
+          $conn = new mysqli($servername, $username, $db_password, $dbname);
+
+          // Получение id товара из URL
+          $id = $_GET['id'];
+
+          // Запрос к базе данных для получения данных о товаре
+          $sql = "SELECT * FROM portfolioimages WHERE workId = ?";
+          $stmt = $conn->prepare($sql);
+          $stmt->bind_param("i", $id);
+          $stmt->execute();
+          $results = $stmt->get_result();
+
+          // Шаблон HTML страницы товара
+          while ($row = $results->fetch_assoc()) {
+              echo '
+              <li class="portfolio-page__item">
+                  <a
+                  class="portfolio-page__item-link portfolio-page__item-link--page"
+                  href="#"
+                  data-fancybox="gallery"
+                  data-src="'.$row["image"].'"
+                  >
+                  <img
+                      class="portfolio-page__item-img portfolio-page__item-img--page"
+                      src="'.$row["image"].'"
+                      alt=""
+                  />
+                  </a>
+              </li>
+              ';
+          }
+          ?>
         </ul>
       </section>
     </main>

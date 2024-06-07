@@ -142,60 +142,32 @@ if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
         <div class="container">
           <h2 class="portfolio__title">Портфолио</h2>
           <ul class="portfolio__list">
-            <li class="portfolio__item">
-              <img src="img/portfolio.jpg" alt="" class="portfolio__item-img" />
-              <h4 class="portfolio__item-title">Какой-то чел</h4>
-              <p class="portfolio__item-subtitle">
-                Сидит, улыбается. Чего улбается? Ненормальный какой-то. Просто
-                ужас!
-              </p>
-              <a class="portfolio__item-btn" href="#">Смотреть</a>
-            </li>
-            <li class="portfolio__item">
-              <img src="img/portfolio.jpg" alt="" class="portfolio__item-img" />
-              <h4 class="portfolio__item-title">Какой-то чел</h4>
-              <p class="portfolio__item-subtitle">
-                Сидит, улыбается. Чего улбается? Ненормальный какой-то. Просто
-                ужас!
-              </p>
-              <a class="portfolio__item-btn" href="#">Смотреть</a>
-            </li>
-            <li class="portfolio__item">
-              <img src="img/portfolio.jpg" alt="" class="portfolio__item-img" />
-              <h4 class="portfolio__item-title">Какой-то чел</h4>
-              <p class="portfolio__item-subtitle">
-                Сидит, улыбается. Чего улбается? Ненормальный какой-то. Просто
-                ужас!
-              </p>
-              <a class="portfolio__item-btn" href="#">Смотреть</a>
-            </li>
-            <li class="portfolio__item">
-              <img src="img/portfolio.jpg" alt="" class="portfolio__item-img" />
-              <h4 class="portfolio__item-title">Какой-то чел</h4>
-              <p class="portfolio__item-subtitle">
-                Сидит, улыбается. Чего улбается? Ненормальный какой-то. Просто
-                ужас!
-              </p>
-              <a class="portfolio__item-btn" href="#">Смотреть</a>
-            </li>
-            <li class="portfolio__item">
-              <img src="img/portfolio.jpg" alt="" class="portfolio__item-img" />
-              <h4 class="portfolio__item-title">Какой-то чел</h4>
-              <p class="portfolio__item-subtitle">
-                Сидит, улыбается. Чего улбается? Ненормальный какой-то. Просто
-                ужас!
-              </p>
-              <a class="portfolio__item-btn" href="#">Смотреть</a>
-            </li>
-            <li class="portfolio__item">
-              <img src="img/portfolio.jpg" alt="" class="portfolio__item-img" />
-              <h4 class="portfolio__item-title">Какой-то чел</h4>
-              <p class="portfolio__item-subtitle">
-                Сидит, улыбается. Чего улбается? Ненормальный какой-то. Просто
-                ужас!
-              </p>
-              <a class="portfolio__item-btn" href="#">Смотреть</a>
-            </li>
+          <?php
+              require_once 'php/config.php';
+              $mysqli = new mysqli($servername, $username, $db_password, $dbname);
+              if ($mysqli->connect_error) {
+                  die('Ошибка подключения (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
+              }
+
+              $query = "set names utf8mb4";
+              $mysqli->query($query);
+
+              $query = "SELECT * FROM portfolio ORDER BY id DESC LIMIT 6";
+              $results = $mysqli->query($query);
+
+              while ($row = $results->fetch_assoc()) {
+                  echo '
+                    <li class="portfolio__item">
+                      <img src="'.$row["cover"].'" alt="" class="portfolio__item-img" />
+                      <h4 class="portfolio__item-title">'.$row["name"].'</h4>
+                      <p class="portfolio__item-subtitle">
+                        '.$row["description"].'
+                      </p>
+                      <a class="portfolio__item-btn" href="work.php?id='. $row["id"] .'">Смотреть</a>
+                    </li>
+                  ';
+            }
+            ?>
           </ul>
         </div>
       </section>

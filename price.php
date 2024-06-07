@@ -121,7 +121,7 @@ if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
                   </li>
                 </ul>
                 <p class="price__position-info_cost">Стоимость: 7000 ₽</p>
-                <a class="price__position-info_btn" href="#">Записаться</a>
+                <a class="price__position-info_btn" href="php/add-individual-order.php">Записаться</a>
               </div>
             </div>
             <h3 class="price__postition-title">Съёмка мероприятий</h3>
@@ -166,7 +166,7 @@ if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
                   </li>
                 </ul>
                 <p class="price__position-info_cost">Стоимость: 7000 ₽</p>
-                <a class="price__position-info_btn" href="#">Записаться</a>
+                <a class="price__position-info_btn" href="php/add-event-order.php">Записаться</a>
               </div>
             </div>
           </div>

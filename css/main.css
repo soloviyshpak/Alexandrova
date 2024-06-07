@@ -875,6 +875,16 @@ body {
   text-decoration: underline;
 }
 
+.admin-orders__item-state {
+  font-size: 16px;
+  color: #b4c708;
+  margin-bottom: 15px;
+}
+
+.admin-orders__item-state--accepted {
+  color: #096315;
+}
+
 .admin-orders__item-info--center {
   text-align: center;
   margin-top: 29px;

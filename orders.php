@@ -7,6 +7,7 @@ if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
     $isLoggedIn = true;
 } else {
     $isLoggedIn = false;
+    header("Location: index.php");
 }
 ?>
 
@@ -33,11 +34,7 @@ if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
               <a href="index.php" class="header__nav-link">Главная</a>
             </ul>
             <ul class="header__nav-item">
-              <a
-                href="portfolio.php"
-                class="header__nav-link header__nav-link--opened"
-                >Портфолио</a
-              >
+              <a href="portfolio.php" class="header__nav-link">Портфолио</a>
             </ul>
             <ul class="header__nav-item">
               <a href="price.php" class="header__nav-link">Записаться</a>
@@ -62,51 +59,59 @@ if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
       </div>
     </header>
     <main class="main">
-      <section class="portfolio-page">
-        <div class="portfolio-page__titlebox">
-          <h2 class="portfolio-page__title">Портфолио фотографа</h2>
-          <p class="porfolio-page__subtitle">
-            Фотосессия это легко и интересно, будьте смелее, не бойтесь
-            экспериментировать, пробуйте новое и, главное, получайте
-            удовольствие от процесса. Если вам нравится моё портфолио, можете
-            быть уверены, что результат нашей совместной работы со съёмки, будет
-            выглядеть также хорошо. 
-          </p>
-        </div>
-
-        <ul class="portfolio-page__list">
+      <section class="account">
+        <ul class="admin-orders__list">
         <?php
-              require_once 'php/config.php';
-              $mysqli = new mysqli($servername, $username, $db_password, $dbname);
-              if ($mysqli->connect_error) {
-                  die('Ошибка подключения (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
-              }
+          // Замените параметры подключения к вашей базе данных
+          require_once 'php/config.php';
 
-              $query = "set names utf8mb4";
-              $mysqli->query($query);
+          // Создаем подключение к базе данных
+          $conn = new mysqli($servername, $username, $db_password, $dbname);
 
-              $query = "SELECT * FROM portfolio";
-              $results = $mysqli->query($query);
+          // Проверяем соединение
+          if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+          }
 
-              while ($row = $results->fetch_assoc()) {
+          // Id авторизованного пользователя
+          $userId = $_SESSION['userId'];
+
+          // Выбираем избранные товары для данного пользователя
+          $sql = "SELECT * FROM orders WHERE userId = $userId;";
+          $result = $conn->query($sql);
+
+          if ($result->num_rows > 0) {
+              // Выводим каждый избранный товар
+              while($row = $result->fetch_assoc()) {
+                  $stateClass = ($row["state"] === "Одобрено") ? "admin-orders__item-state--accepted" : "";
                   echo '
-                    <li class="portfolio-page__item">
-                      <a class="portfolio-page__item-link" href="work.php?id='. $row["id"] .'">
-                        <img
-                          class="portfolio-page__item-img"
-                          src="'.$row["cover"].'"
-                          alt=""
-                        />
-                        <h4 class="porfolio-page__item-title">'.$row["name"].'</h4>
-                      </a>
-                    </li>
+                  <li class="admin-orders__item">
+                      <h4 class="admin-orders__item-title">Запись</h4>
+                      <p class="admin-orders__item-info">
+                          Тип фотосессии: '.$row["type"].'
+                      </p>
+                      <p class="admin-orders__item-state '.$stateClass.'">'.$row["state"].'</p>
+                      <div class="admin-orders__item-controls">
+                          <a
+                              class="admin-orders__item-btn admin-orders__item-btn--del"
+                              href="#"
+                              data-type="'.$row["type"].'"
+                              >Отменить заказ</a
+                          >
+                      </div>
+                  </li>
                   ';
-            }
-            ?>
+              }
+          } else {
+              echo "Пользователь не имеет записей.";
+          }
+
+          $conn->close();
+          ?>
         </ul>
       </section>
     </main>
-    <footer class="footer">
+    <footer class="footer footer--account">
       <div class="container">
         <div class="footer__inner">
           <div class="footer__copyright">© 2024 Alexandrova</div>
@@ -131,5 +136,7 @@ if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
       </div>
     </footer>
   </body>
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <script src="js/del-user-orders.js"></script>
   <script src="js/main.js"></script>
 </html>

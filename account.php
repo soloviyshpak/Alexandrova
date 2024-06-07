@@ -99,7 +99,7 @@ if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
             }
             ?>
           <a class="account__edit" href="account-edit.php">Редактировать профиль</a>
-          <a class="account__orders" href="#">Мои заказы</a>
+          <a class="account__orders" href="orders.php">Мои заказы</a>
           <a href="php/logout.php" class="account__exit">Выйти</a>
         </div>
       </section>

@@ -76,7 +76,7 @@ if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
                 ></iframe>
-                <form class="contacts__write-form">
+                <form class="contacts__write-form" method="POST" action="php/message.php">
                   <label class="contacts__write-form_label" for="name"
                     >Ваше имя</label
                   >
