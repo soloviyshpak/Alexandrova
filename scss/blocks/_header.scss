@@ -1,8 +1,8 @@
 .header {
-  background: url('../img/header-bg.jpg') no-repeat;
   background-size: cover;
   height: 100vh;
   position: relative;
+  transition: all 0.3s;
 }
 .header__bar {
   padding: 20px 76px 0;
