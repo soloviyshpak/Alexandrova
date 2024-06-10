@@ -63,11 +63,11 @@ if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
       <div class="header__content">
         <h1 class="header__content-title">Ольга Александрова</h1>
         <p class="header__content-subtitle">ПРОФЕССИОНАЛЬНЫЙ ФОТОГРАФ</p>
-        <a href="#" class="header__content-btn">Подробнее</a>
+        <a href="#about" class="header__content-btn">Подробнее</a>
       </div>
     </header>
     <main class="main">
-      <section class="about">
+      <section class="about" id="about">
         <div class="container">
           <div class="about__inner">
             <h2 class="about__title">Обо мне</h2>
@@ -112,7 +112,7 @@ if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
               событие? С удовольствием предложу свежие идеи и проведу для вас
               фотоссесию. Нахожу индивидуальный подход к любому клиенту
             </p>
-            <a class="sign__btn" href="#">Записаться</a>
+            <a class="sign__btn" href="price.php">Записаться</a>
           </div>
         </div>
       </section>

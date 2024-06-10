@@ -21,6 +21,10 @@
   color: #fff;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #000;
 }
