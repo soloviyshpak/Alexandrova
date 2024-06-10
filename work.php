@@ -64,8 +64,6 @@ if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
     </header>
     <main class="main">
       <section class="portfolio-page">
-        <h2 class="portfolio-page__title">Обезьяна</h2>
-        <ul class="portfolio-page__list">
         <?php
           // Подключение к базе данных
           require_once 'php/config.php';
@@ -76,30 +74,29 @@ if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
           $id = $_GET['id'];
 
           // Запрос к базе данных для получения данных о товаре
-          $sql = "SELECT * FROM portfolioimages WHERE workId = ?";
+          $sql = "SELECT pi.*, p.name FROM portfolioimages pi 
+                  JOIN portfolio p ON pi.workId = p.id
+                  WHERE pi.workId = ?";
           $stmt = $conn->prepare($sql);
           $stmt->bind_param("i", $id);
           $stmt->execute();
           $results = $stmt->get_result();
 
-          // Шаблон HTML страницы товара
+          $name = ''; // Инициализация переменной $name
+
           while ($row = $results->fetch_assoc()) {
-              echo '
-              <li class="portfolio-page__item">
-                  <a
-                  class="portfolio-page__item-link portfolio-page__item-link--page"
-                  href="#"
-                  data-fancybox="gallery"
-                  data-src="'.$row["image"].'"
-                  >
-                  <img
-                      class="portfolio-page__item-img portfolio-page__item-img--page"
-                      src="'.$row["image"].'"
-                      alt=""
-                  />
-                  </a>
-              </li>
-              ';
+              if ($name === '') {
+                  $name = $row["name"]; // Присваивание значения переменной $name
+                  echo '<h2 class="portfolio-page__title">' . $name . '</h2>';
+                  echo '<ul class="portfolio-page__list">';
+              }
+              echo '<li class="portfolio-page__item">
+                      <a class="portfolio-page__item-link portfolio-page__item-link--page"
+                        href="#" data-fancybox="gallery" data-src="'.$row["image"].'">
+                        <img class="portfolio-page__item-img portfolio-page__item-img--page"
+                              src="'.$row["image"].'" alt="" />
+                      </a>
+                    </li>';
           }
           ?>
         </ul>

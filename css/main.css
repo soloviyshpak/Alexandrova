@@ -345,6 +345,7 @@ body {
 
 .portfolio-page {
   padding: 60px 76px 109px;
+  height: 100vh;
 }
 
 .portfolio-page__titlebox {

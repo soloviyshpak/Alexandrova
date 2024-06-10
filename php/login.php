@@ -20,7 +20,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 // Используем подготовленный запрос для безопасной обработки входных данных
-$sql = "SELECT id, name, password FROM users WHERE email = ?";
+$sql = "SELECT id, name, password, isAdmin FROM users WHERE email = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $email);
 $stmt->execute();
@@ -31,10 +31,18 @@ if ($result->num_rows > 0) {
     if (password_verify($password, $row['password'])) {
         $userId = $row['id'];
         $userName = $row['name'];
+        $isAdmin = $row['isAdmin'];
 
         // Сохраняем информацию об авторизованном пользователе в сессии
         $_SESSION['loggedIn'] = true;
         $_SESSION['userId'] = $userId;
+
+        // Добавляем информацию об администраторе в $_SESSION
+        if ($isAdmin == "true") {
+            $_SESSION['isAdmin'] = true;
+        } else {
+            $_SESSION['isAdmin'] = false;
+        }
 
         // Добавляем JavaScript код для сохранения userId в localStorage и редиректа через 5 секунд
         echo "<script>";
